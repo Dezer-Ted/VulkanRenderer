@@ -1,0 +1,21 @@
+# ninja log v5
+0	31	7349810888607667	glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-mkdir	6ce5756c033abd3b
+0	31	7349810888607667	D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-mkdir	6ce5756c033abd3b
+31	3762	7349810925921714	glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-download	eb79c688a3515092
+31	3762	7349810925921714	D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-download	eb79c688a3515092
+3762	3836	0	glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-update	82ebcf338523c00f
+3762	3836	0	D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-update	82ebcf338523c00f
+3836	3864	7349810926951742	glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-patch	ba91970aa5d24311
+3836	3864	7349810926951742	D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-patch	ba91970aa5d24311
+3864	3895	7349810927261716	glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-configure	76af733a40127f5c
+3864	3895	7349810927261716	D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-configure	76af733a40127f5c
+3895	3925	7349810927561724	glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-build	de066f7ed9858fa6
+3895	3925	7349810927561724	D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-build	de066f7ed9858fa6
+3925	3953	7349810927841733	glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-install	2c46c08e91626562
+3925	3953	7349810927841733	D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-install	2c46c08e91626562
+3953	3982	7349810928131731	glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-test	908aa307a8e6e869
+3953	3982	7349810928131731	D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-test	908aa307a8e6e869
+3982	4023	7349810928531737	CMakeFiles/glfw-populate-complete	d0598b24c9229f6
+3982	4023	7349810928531737	glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-done	d0598b24c9229f6
+3982	4023	7349810928531737	D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-subbuild/CMakeFiles/glfw-populate-complete	d0598b24c9229f6
+3982	4023	7349810928531737	D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-done	d0598b24c9229f6
