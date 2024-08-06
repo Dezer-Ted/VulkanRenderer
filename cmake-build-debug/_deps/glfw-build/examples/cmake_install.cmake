@@ -1,4 +1,4 @@
-# Install script for directory: D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-src/examples
+# Install script for directory: C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/glfw-src/examples
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

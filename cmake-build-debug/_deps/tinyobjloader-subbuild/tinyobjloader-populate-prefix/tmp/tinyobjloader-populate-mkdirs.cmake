@@ -4,19 +4,19 @@
 cmake_minimum_required(VERSION 3.5)
 
 file(MAKE_DIRECTORY
-  "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/tinyobjloader-src"
-  "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/tinyobjloader-build"
-  "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix"
-  "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/tmp"
-  "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp"
-  "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src"
-  "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp"
+  "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/tinyobjloader-src"
+  "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/tinyobjloader-build"
+  "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix"
+  "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/tmp"
+  "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp"
+  "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src"
+  "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp"
 )
 
 set(configSubDirs )
 foreach(subDir IN LISTS configSubDirs)
-    file(MAKE_DIRECTORY "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/${subDir}")
+    file(MAKE_DIRECTORY "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/${subDir}")
 endforeach()
 if(cfgdir)
-  file(MAKE_DIRECTORY "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp${cfgdir}") # cfgdir has leading slash
+  file(MAKE_DIRECTORY "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp${cfgdir}") # cfgdir has leading slash
 endif()

@@ -12,10 +12,7 @@ void VulkanBase::InitWindow()
     glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
     window = glfwCreateWindow(WIDTH, HEIGHT, "Vulkan", nullptr, nullptr);
     glfwSetWindowUserPointer(window, this);
-    m_Camera.velocity = glm::vec3{0.f};
-    m_Camera.position = glm::vec3{0.f, 0.f, 0.f};
-    m_Camera.pitch    = 0;
-    m_Camera.yaw      = 0;
+    m_Camera = std::make_unique<Camera>(Camera{90.f,{0.f,0.f,-20.f},static_cast<float>(WIDTH)/static_cast<float>(HEIGHT)});
 
     glfwSetKeyCallback(window, [](GLFWwindow* window, int key, int scancode, int action, int mods)
     {
@@ -41,22 +38,21 @@ void VulkanBase::InitWindow()
 
 void VulkanBase::KeyEvent(int key, int scancode, int action, int mods)
 {
-    m_Camera.velocity = glm::vec3{0, 0, 0};
     if (key == GLFW_KEY_W && (action == GLFW_REPEAT || action == GLFW_PRESS))
     {
-        m_Camera.velocity.z = -1;
+        m_Camera->m_Position += m_Camera->m_Forward* m_Camera->m_Speed;
     }
     if (key == GLFW_KEY_S && (action == GLFW_REPEAT || action == GLFW_PRESS))
     {
-        m_Camera.velocity.z = 1;
+        m_Camera->m_Position += -m_Camera->m_Forward* m_Camera->m_Speed;
     }
     if (key == GLFW_KEY_D && (action == GLFW_REPEAT || action == GLFW_PRESS))
     {
-        m_Camera.velocity.x = -1;
+        m_Camera->m_Position += m_Camera->m_Right * m_Camera->m_Speed;
     }
     if (key == GLFW_KEY_A && (action == GLFW_REPEAT || action == GLFW_PRESS))
     {
-        m_Camera.velocity.x = 1;
+        m_Camera->m_Position += -m_Camera->m_Right * m_Camera->m_Speed;
     }
 }
 
@@ -67,23 +63,9 @@ void VulkanBase::MouseMove(GLFWwindow* window, double xpos, double ypos)
     {
         float dx = static_cast<float>(xpos) - m_DragStart.x;
         float dy = static_cast<float>(ypos) - m_DragStart.y;
-        if (dx > 0)
-        {
-            m_Camera.yaw += dx / 200.f;
-        }
-        else
-        {
-            m_Camera.yaw -= dx / 200.f;
-        }
-        if (dy > 0)
-        {
-
-            m_Camera.pitch += dy / 200.f;
-        }
-        else
-        {
-            m_Camera.pitch += dy / 200.f;
-        }
+        std::cout << " X:" << dx << "Y:" << dy << std::endl;
+        m_Camera->UpdateYaw(dx);
+        m_Camera->UpdatePitch(dy);
     }
 }
 
@@ -101,7 +83,8 @@ void VulkanBase::MouseEvent(GLFWwindow* window, int button, int action, int mods
 
 void VulkanBase::DrawFrame(uint32_t imageIndex)
 {
-    m_pScene->Update(m_Camera);
+    m_Camera->Update();
+    m_pScene->Update(*m_Camera, imageIndex);
     VkRenderPassBeginInfo renderPassInfo{};
     renderPassInfo.sType             = VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO;
     renderPassInfo.renderPass        = m_pGraphicsPipeline2D->GetRenderPass();
@@ -201,7 +184,7 @@ void VulkanBase::InitVulkan()
     m_CommandPool   = std::make_unique<CommandPool>(findQueueFamilies(physicalDevice));
     m_CommandBuffer = std::make_unique<CommandBuffer>(*m_CommandPool, this);
     m_pScene        = std::make_unique<Scene>();
-    m_pScene->InitMeshes();
+    m_pScene->InitMeshes(*m_Camera);
     m_pScene->CompoundUpload(*m_CommandPool, graphicsQueue);
 
     // week 06

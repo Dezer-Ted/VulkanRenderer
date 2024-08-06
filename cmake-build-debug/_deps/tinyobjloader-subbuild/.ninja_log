@@ -1,21 +1,21 @@
 # ninja log v5
-0	32	7349810867857133	tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-mkdir	be37b18915a129e4
-0	32	7349810867857133	D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-mkdir	be37b18915a129e4
-33	1708	7349810884625739	tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-download	862b4f56922f33e2
-33	1708	7349810884625739	D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-download	862b4f56922f33e2
-1709	1785	0	tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-update	580549a00de9d30b
-1709	1785	0	D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-update	580549a00de9d30b
-1785	1813	7349810885671812	tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-patch	77c55e25aea385be
-1785	1813	7349810885671812	D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-patch	77c55e25aea385be
-1813	1841	7349810885941811	tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-configure	684cfecdb7a08c4f
-1813	1841	7349810885941811	D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-configure	684cfecdb7a08c4f
-1841	1868	7349810886217487	tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-build	8e69ca00079325e0
-1841	1868	7349810886217487	D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-build	8e69ca00079325e0
-1868	1897	7349810886507462	tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-install	10b9a50d7ff58b01
-1868	1897	7349810886507462	D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-install	10b9a50d7ff58b01
-1897	1929	7349810886837445	tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-test	fdbbdb06647ccb1e
-1897	1929	7349810886837445	D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-test	fdbbdb06647ccb1e
-1930	1974	7349810887267551	CMakeFiles/tinyobjloader-populate-complete	c5e505efa10229c9
-1930	1974	7349810887267551	tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-done	c5e505efa10229c9
-1930	1974	7349810887267551	D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/tinyobjloader-subbuild/CMakeFiles/tinyobjloader-populate-complete	c5e505efa10229c9
-1930	1974	7349810887267551	D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-done	c5e505efa10229c9
+0	48	7445615134527332	tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-mkdir	2b11d5e9e215b2c5
+0	48	7445615134527332	C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-mkdir	2b11d5e9e215b2c5
+48	2155	7445615155598289	tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-download	ca93c01ba38cefef
+48	2155	7445615155598289	C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-download	ca93c01ba38cefef
+2155	2268	0	tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-update	4e4f61260d5c862c
+2155	2268	0	C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-update	4e4f61260d5c862c
+2268	2310	7445615157156541	tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-patch	46de8eebf972268c
+2268	2310	7445615157156541	C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-patch	46de8eebf972268c
+2310	2351	7445615157564111	tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-configure	e2159eb1e72db3a1
+2310	2351	7445615157564111	C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-configure	e2159eb1e72db3a1
+2352	2393	7445615157975190	tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-build	d1c8f872935913cd
+2352	2393	7445615157975190	C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-build	d1c8f872935913cd
+2393	2435	7445615158402903	tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-install	49580fdba11fb8ef
+2393	2435	7445615158402903	C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-install	49580fdba11fb8ef
+2435	2476	7445615158816071	tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-test	db51e9856e6f48d4
+2435	2476	7445615158816071	C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-test	db51e9856e6f48d4
+2476	2535	7445615159398135	CMakeFiles/tinyobjloader-populate-complete	69fafca349172d52
+2476	2535	7445615159398135	tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-done	69fafca349172d52
+2476	2535	7445615159398135	C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/tinyobjloader-subbuild/CMakeFiles/tinyobjloader-populate-complete	69fafca349172d52
+2476	2535	7445615159398135	C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-done	69fafca349172d52

@@ -25,6 +25,7 @@ public:
     void UploadBuffer(const CommandPool& pool, const VkQueue& graphicsQueue);
     void Destroy();
     void Draw(const CommandBuffer& buffer, uint32_t currentFrame, const GraphicsPipeline& pipeline, const VertexUBO& cam);
+    void Update(VertexUBO &ubo, uint32_t currentFrame);
     void InitCube(const glm::vec3& pos, float length);
     void LoadModel(const std::string& filePath);
     void Translate(const glm::vec3& direction);
@@ -49,6 +50,7 @@ private:
     glm::mat4             m_TranslationMatrix{glm::mat4(1.f)};
     glm::mat4             m_RotationMatrix{glm::mat4(1.f)};
     glm::mat4             m_ScaleMatrix{glm::mat4(1.f)};
+
 };
 
 

@@ -1,14 +1,14 @@
 # Target labels
  tinyobjloader-populate
 # Source files and their labels
-D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/tinyobjloader-subbuild/CMakeFiles/tinyobjloader-populate
-D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/tinyobjloader-subbuild/CMakeFiles/tinyobjloader-populate.rule
-D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/tinyobjloader-subbuild/CMakeFiles/tinyobjloader-populate-complete.rule
-D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-build.rule
-D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-configure.rule
-D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-download.rule
-D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-install.rule
-D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-mkdir.rule
-D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-patch.rule
-D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-test.rule
-D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-update.rule
+C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/tinyobjloader-subbuild/CMakeFiles/tinyobjloader-populate
+C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/tinyobjloader-subbuild/CMakeFiles/tinyobjloader-populate.rule
+C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/tinyobjloader-subbuild/CMakeFiles/tinyobjloader-populate-complete.rule
+C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-build.rule
+C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-configure.rule
+C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-download.rule
+C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-install.rule
+C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-mkdir.rule
+C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-patch.rule
+C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-test.rule
+C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-update.rule

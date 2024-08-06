@@ -4,19 +4,19 @@
 cmake_minimum_required(VERSION 3.5)
 
 file(MAKE_DIRECTORY
-  "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-src"
-  "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-build"
-  "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix"
-  "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/tmp"
-  "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp"
-  "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src"
-  "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp"
+  "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/glfw-src"
+  "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/glfw-build"
+  "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix"
+  "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/tmp"
+  "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp"
+  "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src"
+  "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp"
 )
 
 set(configSubDirs )
 foreach(subDir IN LISTS configSubDirs)
-    file(MAKE_DIRECTORY "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/${subDir}")
+    file(MAKE_DIRECTORY "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/${subDir}")
 endforeach()
 if(cfgdir)
-  file(MAKE_DIRECTORY "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp${cfgdir}") # cfgdir has leading slash
+  file(MAKE_DIRECTORY "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp${cfgdir}") # cfgdir has leading slash
 endif()

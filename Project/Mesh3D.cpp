@@ -37,17 +37,16 @@ void Mesh3D::Destroy()
 void
 Mesh3D::Draw(const CommandBuffer& buffer, uint32_t currentFrame, const GraphicsPipeline& pipeline, const VertexUBO& cam)
 {
-    m_RotationMatrix = glm::rotate(m_RotationMatrix,
-                                   dae::Singleton<DeltaTime>::GetInstance().GetDeltaTime() * glm::radians(90.0f),
-                                   glm::vec3(0.0f, 1.0f, 0.0f));
-    m_Ubo.model = m_TranslationMatrix * m_RotationMatrix * m_ScaleMatrix;
-    //m_Ubo.view  = cam.view;
-    //m_Ubo.proj  = cam.proj;
+
     m_VertexBuffer.InitAsVertexBuffer(buffer);
     m_IndexBuffer.InitAsIndexBuffer(buffer);
-    m_DescriptorPool.UpdateUniformBuffer(currentFrame, m_Ubo);
     m_DescriptorPool.BindDescriptorSets(buffer, currentFrame, pipeline);
-    vkCmdDrawIndexed(buffer.GetCommandBuffer(), static_cast<uint32_t>(m_Indices.size()), 1, 0, 0, 0);
+    vkCmdDrawIndexed(buffer.GetCommandBuffer(),
+                     static_cast<uint32_t>(m_Indices.size()),
+                     1,
+                     0,
+                     0,
+                     0);
 }
 
 void Mesh3D::AddVertex(const glm::vec3& position, const glm::vec3& color)
@@ -160,4 +159,13 @@ void Mesh3D::LoadModel(const std::string& filePath)
 void Mesh3D::Translate(const glm::vec3& direction)
 {
     m_TranslationMatrix = glm::translate(m_TranslationMatrix, direction);
+}
+
+void Mesh3D::Update(VertexUBO &ubo, uint32_t currentFrame) {
+    m_RotationMatrix = glm::rotate(m_RotationMatrix,
+                                   dae::Singleton<DeltaTime>::GetInstance().GetDeltaTime() * glm::radians(90.0f),
+                                   glm::vec3(0.0f, 1.0f, 0.0f));
+    ubo.model = m_TranslationMatrix * m_RotationMatrix * m_ScaleMatrix;
+    m_DescriptorPool.UpdateUniformBuffer(currentFrame, ubo);
+
 }

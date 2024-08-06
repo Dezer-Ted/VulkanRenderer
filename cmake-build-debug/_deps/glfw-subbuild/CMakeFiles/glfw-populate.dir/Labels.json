@@ -2,37 +2,37 @@
 	"sources" : 
 	[
 		{
-			"file" : "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-subbuild/CMakeFiles/glfw-populate"
+			"file" : "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/glfw-subbuild/CMakeFiles/glfw-populate"
 		},
 		{
-			"file" : "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-subbuild/CMakeFiles/glfw-populate.rule"
+			"file" : "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/glfw-subbuild/CMakeFiles/glfw-populate.rule"
 		},
 		{
-			"file" : "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-subbuild/CMakeFiles/glfw-populate-complete.rule"
+			"file" : "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/glfw-subbuild/CMakeFiles/glfw-populate-complete.rule"
 		},
 		{
-			"file" : "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-build.rule"
+			"file" : "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-build.rule"
 		},
 		{
-			"file" : "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-configure.rule"
+			"file" : "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-configure.rule"
 		},
 		{
-			"file" : "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-download.rule"
+			"file" : "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-download.rule"
 		},
 		{
-			"file" : "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-install.rule"
+			"file" : "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-install.rule"
 		},
 		{
-			"file" : "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-mkdir.rule"
+			"file" : "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-mkdir.rule"
 		},
 		{
-			"file" : "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-patch.rule"
+			"file" : "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-patch.rule"
 		},
 		{
-			"file" : "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-test.rule"
+			"file" : "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-test.rule"
 		},
 		{
-			"file" : "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-update.rule"
+			"file" : "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-update.rule"
 		}
 	],
 	"target" : 

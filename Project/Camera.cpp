@@ -12,26 +12,72 @@
 #include <glm/gtx/quaternion.hpp>
 #include <DeltaTime.h>
 #include <Singleton.h>
+#include <AccCtrl.h>
 
 
-glm::mat4 Camera::GetViewMatrix()
+void Camera::CalculateViewMatrix()
 {
-    glm::mat4 cameraTranslation = glm::translate(glm::mat4(1.f), position);
-    glm::mat4 cameraRotation    = GetRotationMatrix();
-    return glm::inverse(cameraTranslation * cameraRotation);
+    m_ViewMatrix = glm::lookAtLH(m_Position, m_Position+m_Forward,m_Up);
 }
 
 
-glm::mat4 Camera::GetRotationMatrix()
-{
-    glm::quat pitchRotation = glm::angleAxis(pitch, glm::vec3{1.f, 0.f, 0.f});
-    glm::quat yawRotation   = glm::angleAxis(yaw, glm::vec3{0.f, -1.f, 0.f});
-    return glm::toMat4(yawRotation) * glm::toMat4(pitchRotation);
-}
+
 
 void Camera::Update()
 {
-    glm::mat4 cameraRotation = GetRotationMatrix();
-    position += glm::vec3(
-            cameraRotation * glm::vec4(velocity * (dae::Singleton<DeltaTime>::GetInstance().GetDeltaTime()/1000), 0.f));
+    UpdateRotation();
+    CalculateViewMatrix();
 }
+
+Camera::Camera(float fov, glm::vec3 position, float aspectRatio) :
+    m_FOVRadian{glm::radians(fov)},
+    m_Position{position},
+    m_AspectRatio{aspectRatio}
+{
+    CalculateProjMatrix();
+}
+
+void Camera::CalculateProjMatrix() {
+
+    m_ProjectionMatrix = glm::mat4 {glm::perspectiveLH(m_FOVRadian,m_AspectRatio,m_NearPlane,m_FarPlane)};
+    m_ProjectionMatrix[1][1] *= -1;
+}
+
+void Camera::UpdateYaw(float moveDelta) {
+    if( abs(moveDelta)< 0.1 )
+        return;
+    m_Yaw += m_RotationSpeed * moveDelta;
+    if( m_Yaw >= 360.f) {
+        m_Yaw = 0.f;
+    }
+    else if ( m_Yaw <0.f) {
+        m_Yaw = 360.f;
+    }
+
+}
+
+void Camera::UpdatePitch(float moveDelta) {
+    if( abs(moveDelta)< 0.1 )
+        return;
+    m_Pitch += m_RotationSpeed * moveDelta;
+    if( m_Pitch >= 360.f) {
+        m_Pitch = 0.f;
+    }
+    else if ( m_Pitch <0.f) {
+        m_Pitch = 360.f;
+    }
+}
+
+void Camera::UpdateRotation() {
+    glm::mat4 rotationMatrix {};
+    const glm::vec3 worldUp {0.f,1.f,0.f};
+    rotationMatrix = glm::rotate(glm::mat4{1.f},glm::radians(m_Pitch),m_Right);
+    rotationMatrix += glm::rotate( glm::mat4{1.f}, glm::radians(m_Yaw),worldUp);
+
+    m_Forward = glm::vec3 {glm::normalize(rotationMatrix * glm::vec4{0.f,worldUp})};
+    m_Right =glm::normalize(glm::cross(worldUp, m_Forward));
+    m_Up = glm::normalize(glm::cross(m_Forward, m_Right));
+}
+
+
+

@@ -1,4 +1,4 @@
-# Install script for directory: D:/Github Repositories/GraphicsProgramming/Project
+# Install script for directory: C:/Git/GraphicsProgRestored/Project
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

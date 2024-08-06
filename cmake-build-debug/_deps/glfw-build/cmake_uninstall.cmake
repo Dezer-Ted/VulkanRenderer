@@ -1,9 +1,9 @@
 
-if (NOT EXISTS "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-build/install_manifest.txt")
-  message(FATAL_ERROR "Cannot find install manifest: \"D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-build/install_manifest.txt\"")
+if (NOT EXISTS "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/glfw-build/install_manifest.txt")
+  message(FATAL_ERROR "Cannot find install manifest: \"C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/glfw-build/install_manifest.txt\"")
 endif()
 
-file(READ "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-build/install_manifest.txt" files)
+file(READ "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/glfw-build/install_manifest.txt" files)
 string(REGEX REPLACE "\n" ";" files "${files}")
 
 foreach (file ${files})

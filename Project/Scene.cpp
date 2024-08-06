@@ -7,12 +7,13 @@
 
 #define GLM_FORCE_RADIANS
 
-void Scene::InitMeshes()
+void Scene::InitMeshes(Camera &cam)
 {
     m_Meshes.emplace_back(std::move(std::make_unique<Mesh>(glm::vec2{1, 1}, 0.5f, 32)));
     m_Meshes.emplace_back(std::move(std::make_unique<Mesh>(glm::vec2{-0.5f, -0.5f}, 1.f, 1.f)));
     m_Ubo.model = glm::mat4(1.f);
     m_Ubo.proj  = glm::mat4(1.f);
+    m_3DUbo.proj = cam.m_ProjectionMatrix;
     const float aspectRatio = static_cast<float>(VulkanBase::swapChainExtent.width) /
                               static_cast<float>(VulkanBase::swapChainExtent.height);
     glm::vec3   scale(1 / aspectRatio, 1.f, 1.f);
@@ -23,6 +24,7 @@ void Scene::InitMeshes()
     m_Meshes3D.back()->LoadModel("Models/vehicle.obj");
     m_Meshes3D.back()->Translate({-6,-6,-6});
     m_DescriptorPool.Initialize();
+
 
 }
 
@@ -68,15 +70,12 @@ void Scene::CompoundUpload(const CommandPool& pool, const VkQueue& graphicsQueue
     }
 }
 
-void Scene::Update(Camera& cam)
+void Scene::Update(Camera &cam, uint32_t currentFrame)
 {
-    cam.Update();
-    m_Meshes3D.back()->Translate(cam.position);
-    //m_3DUbo.view = glm::lookAt(cam.position, {0, 0, 0}, {0, 1, 0});
+    m_3DUbo.view = cam.m_ViewMatrix;
+    for(const auto& mesh3d : m_Meshes3D) {
+        mesh3d->Update(m_3DUbo,currentFrame);
+    }
 
-//    m_3DUbo.view = cam.GetViewMatrix();
-//    m_3DUbo.proj = glm::perspective(glm::radians(70.f), static_cast<float>(VulkanBase::swapChainExtent.width) /
-//                                                        static_cast<float>(VulkanBase::swapChainExtent.height), 1000.f,
-//                                    0.1f);
-//    m_3DUbo.proj[1][1] *= -1;
+
 }

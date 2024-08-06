@@ -3,21 +3,21 @@
 
 cmake_minimum_required(VERSION 3.5)
 
-if(EXISTS "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-gitclone-lastrun.txt" AND EXISTS "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-gitinfo.txt" AND
-  "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-gitclone-lastrun.txt" IS_NEWER_THAN "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-gitinfo.txt")
+if(EXISTS "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-gitclone-lastrun.txt" AND EXISTS "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-gitinfo.txt" AND
+  "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-gitclone-lastrun.txt" IS_NEWER_THAN "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-gitinfo.txt")
   message(STATUS
     "Avoiding repeated git clone, stamp file is up to date: "
-    "'D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-gitclone-lastrun.txt'"
+    "'C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-gitclone-lastrun.txt'"
   )
   return()
 endif()
 
 execute_process(
-  COMMAND ${CMAKE_COMMAND} -E rm -rf "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-src"
+  COMMAND ${CMAKE_COMMAND} -E rm -rf "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/glfw-src"
   RESULT_VARIABLE error_code
 )
 if(error_code)
-  message(FATAL_ERROR "Failed to remove directory: 'D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-src'")
+  message(FATAL_ERROR "Failed to remove directory: 'C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/glfw-src'")
 endif()
 
 # try the clone 3 times in case there is an odd git clone issue
@@ -25,9 +25,9 @@ set(error_code 1)
 set(number_of_tries 0)
 while(error_code AND number_of_tries LESS 3)
   execute_process(
-    COMMAND "D:/Program Files/Git/cmd/git.exe"
+    COMMAND "C:/Program Files/Git/cmd/git.exe"
             clone --no-checkout --config "advice.detachedHead=false" "https://github.com/glfw/glfw.git" "glfw-src"
-    WORKING_DIRECTORY "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps"
+    WORKING_DIRECTORY "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps"
     RESULT_VARIABLE error_code
   )
   math(EXPR number_of_tries "${number_of_tries} + 1")
@@ -40,9 +40,9 @@ if(error_code)
 endif()
 
 execute_process(
-  COMMAND "D:/Program Files/Git/cmd/git.exe"
+  COMMAND "C:/Program Files/Git/cmd/git.exe"
           checkout "3.3.9" --
-  WORKING_DIRECTORY "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-src"
+  WORKING_DIRECTORY "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/glfw-src"
   RESULT_VARIABLE error_code
 )
 if(error_code)
@@ -52,22 +52,22 @@ endif()
 set(init_submodules TRUE)
 if(init_submodules)
   execute_process(
-    COMMAND "D:/Program Files/Git/cmd/git.exe" 
+    COMMAND "C:/Program Files/Git/cmd/git.exe" 
             submodule update --recursive --init 
-    WORKING_DIRECTORY "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-src"
+    WORKING_DIRECTORY "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/glfw-src"
     RESULT_VARIABLE error_code
   )
 endif()
 if(error_code)
-  message(FATAL_ERROR "Failed to update submodules in: 'D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-src'")
+  message(FATAL_ERROR "Failed to update submodules in: 'C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/glfw-src'")
 endif()
 
 # Complete success, update the script-last-run stamp file:
 #
 execute_process(
-  COMMAND ${CMAKE_COMMAND} -E copy "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-gitinfo.txt" "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-gitclone-lastrun.txt"
+  COMMAND ${CMAKE_COMMAND} -E copy "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-gitinfo.txt" "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-gitclone-lastrun.txt"
   RESULT_VARIABLE error_code
 )
 if(error_code)
-  message(FATAL_ERROR "Failed to copy script-last-run stamp file: 'D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-gitclone-lastrun.txt'")
+  message(FATAL_ERROR "Failed to copy script-last-run stamp file: 'C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-gitclone-lastrun.txt'")
 endif()

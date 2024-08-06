@@ -207,7 +207,7 @@ private:
     void MouseMove(GLFWwindow* window, double xpos, double ypos);
     void MouseEvent(GLFWwindow* window, int button, int action, int mods);
     glm::vec2   m_DragStart{0, 0};
-    Camera      m_Camera{};
+    std::unique_ptr<Camera>      m_Camera;
 };
 
 #endif

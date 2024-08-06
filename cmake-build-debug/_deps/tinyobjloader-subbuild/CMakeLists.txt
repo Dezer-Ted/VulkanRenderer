@@ -18,18 +18,18 @@ project(tinyobjloader-populate NONE)
 
 # Pass through things we've already detected in the main project to avoid
 # paying the cost of redetecting them again in ExternalProject_Add()
-set(GIT_EXECUTABLE [==[D:/Program Files/Git/cmd/git.exe]==])
-set(GIT_VERSION_STRING [==[2.39.1.windows.1]==])
+set(GIT_EXECUTABLE [==[C:/Program Files/Git/cmd/git.exe]==])
+set(GIT_VERSION_STRING [==[2.43.0.windows.1]==])
 set_property(GLOBAL PROPERTY _CMAKE_FindGit_GIT_EXECUTABLE_VERSION
-  [==[D:/Program Files/Git/cmd/git.exe;2.39.1.windows.1]==]
+  [==[C:/Program Files/Git/cmd/git.exe;2.43.0.windows.1]==]
 )
 
 
 include(ExternalProject)
 ExternalProject_Add(tinyobjloader-populate
                      "UPDATE_DISCONNECTED" "False" "GIT_REPOSITORY" "https://github.com/tinyobjloader/tinyobjloader.git" "EXTERNALPROJECT_INTERNAL_ARGUMENT_SEPARATOR" "GIT_TAG" "v1.0.6"
-                    SOURCE_DIR          "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/tinyobjloader-src"
-                    BINARY_DIR          "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/tinyobjloader-build"
+                    SOURCE_DIR          "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/tinyobjloader-src"
+                    BINARY_DIR          "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/tinyobjloader-build"
                     CONFIGURE_COMMAND   ""
                     BUILD_COMMAND       ""
                     INSTALL_COMMAND     ""

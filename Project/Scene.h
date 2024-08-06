@@ -21,12 +21,12 @@ public:
     Scene& operator=(const Scene& ) = delete;
     Scene& operator=(Scene&& ) = delete;
     ~Scene() = default;
-    void InitMeshes();
+    void InitMeshes(Camera &cam);
     void Draw(const CommandBuffer& buffer, uint32_t currentFrame, const GraphicsPipeline& pipeline2D,
               const GraphicsPipeline& pipeline3D);
     void Destroy();
     void CompoundUpload(const CommandPool& pool, const VkQueue& graphicsQueue);
-    void Update(Camera& cam);
+    void Update(Camera &cam, uint32_t currentFrame);
 
 private:
     DescriptorPool m_DescriptorPool{};

@@ -50,14 +50,14 @@ unset(_cmake_expected_targets)
 add_library(tinyobjloader STATIC IMPORTED)
 
 set_target_properties(tinyobjloader PROPERTIES
-  INTERFACE_INCLUDE_DIRECTORIES "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/tinyobjloader-src"
+  INTERFACE_INCLUDE_DIRECTORIES "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/tinyobjloader-src"
 )
 
 # Import target "tinyobjloader" for configuration "Debug"
 set_property(TARGET tinyobjloader APPEND PROPERTY IMPORTED_CONFIGURATIONS DEBUG)
 set_target_properties(tinyobjloader PROPERTIES
   IMPORTED_LINK_INTERFACE_LANGUAGES_DEBUG "CXX"
-  IMPORTED_LOCATION_DEBUG "D:/Github Repositories/GraphicsProgramming/cmake-build-debug/_deps/tinyobjloader-build/tinyobjloader.lib"
+  IMPORTED_LOCATION_DEBUG "C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/tinyobjloader-build/tinyobjloader.lib"
   )
 
 # This file does not depend on other imported targets which have
