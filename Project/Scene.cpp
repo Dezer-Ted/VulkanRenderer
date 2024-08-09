@@ -7,10 +7,10 @@
 
 #define GLM_FORCE_RADIANS
 
-void Scene::InitMeshes(Camera &cam)
+void Scene::InitMeshes(Camera &cam, const CommandPool &pool, VkQueue graphicsQueue)
 {
-    m_Meshes.emplace_back(std::move(std::make_unique<Mesh>(glm::vec2{1, 1}, 0.5f, 32)));
-    m_Meshes.emplace_back(std::move(std::make_unique<Mesh>(glm::vec2{-0.5f, -0.5f}, 1.f, 1.f)));
+    //m_Meshes.emplace_back(std::move(std::make_unique<Mesh>(glm::vec2{1, 1}, 0.5f, 32)));
+    //m_Meshes.emplace_back(std::move(std::make_unique<Mesh>(glm::vec2{-0.5f, -0.5f}, 1.f, 1.f)));
     m_Ubo.model = glm::mat4(1.f);
     m_Ubo.proj  = glm::mat4(1.f);
     m_3DUbo.proj = cam.m_ProjectionMatrix;
@@ -19,10 +19,24 @@ void Scene::InitMeshes(Camera &cam)
     glm::vec3   scale(1 / aspectRatio, 1.f, 1.f);
     m_Ubo.view = glm::scale(glm::mat4(1.f), scale);
     m_Meshes3D.push_back(std::move(std::make_unique<Mesh3D>()));
-    m_Meshes3D.back()->InitCube({-0.5f, -0.5f, -0.5f}, 1.f);
+    m_Meshes3D.back()->InitPlane({0,0,0},1.f);
+    m_Meshes3D.back()->LoadTexture(pool, graphicsQueue, "Models/vehicle_diffuse.png", "Models/white.png",
+                                   "Models/white.png", "Models/white.png");
+    m_Meshes3D.back()->InitDescriptor();
     m_Meshes3D.push_back(std::move(std::make_unique<Mesh3D>()));
     m_Meshes3D.back()->LoadModel("Models/vehicle.obj");
+    m_Meshes3D.back()->LoadTexture(pool, graphicsQueue, "Models/vehicle_diffuse.png", "Models/vehicle_normal.png",
+                                   "Models/vehicle_gloss.png", "Models/vehicle_specular.png");
+    m_Meshes3D.back()->InitDescriptor();
     m_Meshes3D.back()->Translate({-6,-6,-6});
+    m_pAlbedoMap = std::make_unique<dae::Texture>("Models/vehicle_diffuse.png", pool, graphicsQueue);
+    m_pNormalMap = std::make_unique<dae::Texture>("Models/white.png", pool, graphicsQueue);
+    m_pRoughnessMap = std::make_unique<dae::Texture>("Models/white.png", pool, graphicsQueue);
+    m_pSpecularMap = std::make_unique<dae::Texture>("Models/white.png", pool, graphicsQueue);
+
+    m_DescriptorPool.InitSampler(m_pAlbedoMap->GetSampler(), m_pNormalMap->GetSampler(),m_pRoughnessMap->GetSampler(),m_pSpecularMap->GetSampler());
+    m_DescriptorPool.InitImageView(m_pAlbedoMap->GetImageView(), m_pNormalMap->GetImageView(),m_pRoughnessMap->GetImageView(),m_pSpecularMap->GetImageView());
+
     m_DescriptorPool.Initialize();
 
 
@@ -55,7 +69,12 @@ void Scene::Destroy()
     {
         mesh->Destroy();
     }
+    m_pAlbedoMap->CleanUp();
+    m_pNormalMap->CleanUp();
+    m_pSpecularMap->CleanUp();
+    m_pRoughnessMap->CleanUp();
     m_DescriptorPool.Destroy();
+
 }
 
 void Scene::CompoundUpload(const CommandPool& pool, const VkQueue& graphicsQueue)

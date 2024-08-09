@@ -29,7 +29,7 @@
 #include "Singleton.h"
 #include "DeltaTime.h"
 #include "Camera.h"
-
+#include "DepthBuffer.h"
 
 const std::vector<const char*> validationLayers = {
         "VK_LAYER_KHRONOS_validation"
@@ -99,6 +99,7 @@ private:
 
         m_pGraphicsPipeline2D->DestroyPipeline();
         m_pGraphicsPipeline3D->DestroyPipeline();
+        m_DepthBuffer->CleanUp();
         for (auto imageView: swapChainImageViews)
         {
             vkDestroyImageView(device, imageView, nullptr);
@@ -171,6 +172,7 @@ private:
     VkQueue presentQueue;
 
     void pickPhysicalDevice();
+    std::unique_ptr<dae::DepthBuffer>m_DepthBuffer{nullptr};
     bool isDeviceSuitable(VkPhysicalDevice phyDevice);
     void createLogicalDevice();
 
@@ -204,6 +206,8 @@ private:
     }
 
     void KeyEvent(int key, int scancode, int action, int mods);
+    void CycleShadingMode();
+    void ToggleNormalMap();
     void MouseMove(GLFWwindow* window, double xpos, double ypos);
     void MouseEvent(GLFWwindow* window, int button, int action, int mods);
     glm::vec2   m_DragStart{0, 0};

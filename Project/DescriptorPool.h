@@ -26,6 +26,10 @@ public:
     void BindDescriptorSets(const CommandBuffer& cmdBuffer, uint32_t currentFrame,
                             const GraphicsPipeline& pipeline) const;
     void Initialize();
+    void InitImageView(VkImageView albedoView, VkImageView normalView, VkImageView roughnessView,
+                       VkImageView specularView);
+    void InitSampler(VkSampler albedoSampler, VkSampler normalSampler, VkSampler roughnessSampler,
+                     VkSampler specularSampler);
 private:
     void CreateUniformBuffers();
     void CreateDescriptorPool();
@@ -35,6 +39,21 @@ private:
     std::vector<void*>           m_UniformBuffersMapped;
     VkDescriptorPool             m_DescriptorPool;
     std::vector<VkDescriptorSet> m_DescriptorSets;
+
+    VkImageView m_AlbedoImageView{};
+    VkSampler m_AlbedoSampler{};
+
+    VkImageView m_NormalImageView{};
+    VkSampler m_NormalSampler{};
+
+    VkImageView m_RoughnessImageView{};
+    VkSampler m_RoughnessSampler{};
+
+    VkImageView m_SpecularImageView{};
+    VkSampler m_SpecularSampler{};
+
+
+
 };
 
 

@@ -13,6 +13,7 @@
 #include <DeltaTime.h>
 #include <Singleton.h>
 #include <AccCtrl.h>
+#include <Mesh3D.h>
 
 
 void Camera::CalculateViewMatrix()
@@ -27,6 +28,7 @@ void Camera::Update()
 {
     UpdateRotation();
     CalculateViewMatrix();
+    Mesh3D::constants.m_CameraPos = m_Position;
 }
 
 Camera::Camera(float fov, glm::vec3 position, float aspectRatio) :

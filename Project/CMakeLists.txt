@@ -22,6 +22,7 @@ add_custom_target(
     Shaders 
     DEPENDS ${SPIRV_BINARY_FILES}
 )
+set(STB_DIR "${CMAKE_CURRENT_SOURCE_DIR}/libs/stb")
 
 add_custom_target(
         copy_resources ALL
@@ -61,6 +62,11 @@ set(SOURCES
         DeltaTime.cpp
         DeltaTime.h
         Singleton.h
+        Textures/Texture.cpp
+        Textures/Texture.h
+        Textures/Texture.h
+        DepthBuffer.cpp
+        DepthBuffer.h
 )
 
 # Create the executable
@@ -71,3 +77,4 @@ add_dependencies(${PROJECT_NAME} copy_resources)
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 target_link_libraries(${PROJECT_NAME} PRIVATE ${Vulkan_LIBRARIES} glfw)
 target_link_libraries(${PROJECT_NAME} PRIVATE ${TINYOBJLOADER_LIBRARY_DIR} tinyobjloader)
+target_include_directories(${PROJECT_NAME} PRIVATE "${STB_DIR}/include/")

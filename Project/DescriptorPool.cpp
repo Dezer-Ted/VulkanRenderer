@@ -22,6 +22,7 @@ void DescriptorPool::CreateUniformBuffers()
                                  m_UniformBuffers[i], m_UniformBufferMemories[i]);
         vkMapMemory(VulkanBase::device, m_UniformBufferMemories[i], 0, buffersize, 0, &m_UniformBuffersMapped[i]);
     }
+
 }
 
 void DescriptorPool::Destroy()
@@ -41,15 +42,17 @@ void DescriptorPool::UpdateUniformBuffer(uint32_t currentImage, const VertexUBO&
 
 void DescriptorPool::CreateDescriptorPool()
 {
-    VkDescriptorPoolSize poolSize{};
-    poolSize.type            = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
-    poolSize.descriptorCount = static_cast<uint32_t>(MAX_FRAMES_IN_FLIGHT);
+    std::array<VkDescriptorPoolSize,2> poolSizes{};
+    poolSizes[0].type            = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+    poolSizes[0].descriptorCount = static_cast<uint32_t>(MAX_FRAMES_IN_FLIGHT);
+    poolSizes[1].type = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
+    poolSizes[1].descriptorCount = static_cast<uint32_t>(MAX_FRAMES_IN_FLIGHT);
     VkDescriptorPoolCreateInfo poolInfo{};
     poolInfo.sType         = VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_CREATE_INFO;
-    poolInfo.poolSizeCount = 1;
-    poolInfo.pPoolSizes    = &poolSize;
-
+    poolInfo.poolSizeCount = static_cast<uint32_t>(poolSizes.size());
+    poolInfo.pPoolSizes    = poolSizes.data();
     poolInfo.maxSets = static_cast<uint32_t>(MAX_FRAMES_IN_FLIGHT);
+
     if (vkCreateDescriptorPool(VulkanBase::device, &poolInfo, nullptr, &m_DescriptorPool) != VK_SUCCESS)
     {
         throw std::runtime_error("failed to create Descriptor pool");
@@ -72,21 +75,83 @@ void DescriptorPool::CreateDescriptorSets()
     }
     for (size_t i = 0; i < MAX_FRAMES_IN_FLIGHT; ++i)
     {
+
         VkDescriptorBufferInfo bufferInfo{};
         bufferInfo.buffer = m_UniformBuffers[i];
         bufferInfo.offset = 0;
         bufferInfo.range  = sizeof(VertexUBO);
-        VkWriteDescriptorSet descriptorWrite{};
-        descriptorWrite.sType            = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
-        descriptorWrite.dstSet           = m_DescriptorSets[i];
-        descriptorWrite.dstBinding       = 0;
-        descriptorWrite.dstArrayElement  = 0;
-        descriptorWrite.descriptorType   = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
-        descriptorWrite.descriptorCount  = 1;
-        descriptorWrite.pBufferInfo      = &bufferInfo;
-        descriptorWrite.pImageInfo       = nullptr;
-        descriptorWrite.pTexelBufferView = nullptr;
-        vkUpdateDescriptorSets(VulkanBase::device, 1, &descriptorWrite, 0, nullptr);
+
+        VkDescriptorImageInfo albedoInfo{};
+        albedoInfo.imageLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
+        albedoInfo.imageView = m_AlbedoImageView;
+        albedoInfo.sampler = m_AlbedoSampler;
+
+        VkDescriptorImageInfo normalInfo{};
+        normalInfo.imageLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
+        normalInfo.imageView = m_NormalImageView;
+        normalInfo.sampler = m_NormalSampler;
+
+        VkDescriptorImageInfo roughnessInfo{};
+        roughnessInfo.imageLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
+        roughnessInfo.imageView = m_RoughnessImageView;
+        roughnessInfo.sampler = m_RoughnessSampler;
+
+        VkDescriptorImageInfo specularInfo{};
+        specularInfo.imageLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
+        specularInfo.imageView = m_SpecularImageView;
+        specularInfo.sampler = m_SpecularSampler;
+
+
+        std::array<VkWriteDescriptorSet,5> descriptorWrite{};
+        descriptorWrite[0].sType            = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
+        descriptorWrite[0].dstSet           = m_DescriptorSets[i];
+        descriptorWrite[0].dstBinding       = 0;
+        descriptorWrite[0].dstArrayElement  = 0;
+        descriptorWrite[0].descriptorType   = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+        descriptorWrite[0].descriptorCount  = 1;
+        descriptorWrite[0].pBufferInfo      = &bufferInfo;
+        descriptorWrite[0].pImageInfo       = nullptr;
+        descriptorWrite[0].pTexelBufferView = nullptr;
+
+        descriptorWrite[1].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
+        descriptorWrite[1].dstSet = m_DescriptorSets[i];
+        descriptorWrite[1].dstBinding = 1;
+        descriptorWrite[1].dstArrayElement = 0;
+        descriptorWrite[1].descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
+        descriptorWrite[1].descriptorCount = 1;
+        descriptorWrite[1].pImageInfo = &albedoInfo;
+
+        descriptorWrite[2].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
+        descriptorWrite[2].dstSet = m_DescriptorSets[i];
+        descriptorWrite[2].dstBinding = 2;
+        descriptorWrite[2].dstArrayElement = 0;
+        descriptorWrite[2].descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
+        descriptorWrite[2].descriptorCount = 1;
+        descriptorWrite[2].pImageInfo = &normalInfo;
+
+        descriptorWrite[3].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
+        descriptorWrite[3].dstSet = m_DescriptorSets[i];
+        descriptorWrite[3].dstBinding = 3;
+        descriptorWrite[3].dstArrayElement = 0;
+        descriptorWrite[3].descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
+        descriptorWrite[3].descriptorCount = 1;
+        descriptorWrite[3].pImageInfo = &roughnessInfo;
+
+        descriptorWrite[4].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
+        descriptorWrite[4].dstSet = m_DescriptorSets[i];
+        descriptorWrite[4].dstBinding = 4;
+        descriptorWrite[4].dstArrayElement = 0;
+        descriptorWrite[4].descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
+        descriptorWrite[4].descriptorCount = 1;
+        descriptorWrite[4].pImageInfo = &specularInfo;
+
+        vkUpdateDescriptorSets(VulkanBase::device,
+                               static_cast<uint32_t>(descriptorWrite.size()),
+                               descriptorWrite.data(),
+                               0,
+                               nullptr
+                               );
+
 
     }
 
@@ -106,4 +171,20 @@ void DescriptorPool::Initialize()
     CreateDescriptorPool();
     CreateDescriptorSets();
 
+}
+
+void DescriptorPool::InitImageView(VkImageView albedoView, VkImageView normalView, VkImageView roughnessView,
+                                   VkImageView specularView) {
+    m_AlbedoImageView = albedoView;
+    m_NormalImageView = normalView;
+    m_RoughnessImageView = roughnessView;
+    m_SpecularImageView = specularView;
+}
+
+void DescriptorPool::InitSampler(VkSampler albedoSampler, VkSampler normalSampler, VkSampler roughnessSampler,
+                                 VkSampler specularSampler) {
+    m_AlbedoSampler = albedoSampler;
+    m_NormalSampler = normalSampler;
+    m_RoughnessSampler = roughnessSampler;
+    m_SpecularSampler = specularSampler;
 }

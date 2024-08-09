@@ -28,6 +28,8 @@ public:
     void EndRecording() const;
     void Reset() const;
     void Submit(VkSubmitInfo &info) const;
+    static VkCommandBuffer BeginSingleTimeCommands(const CommandPool& pool);
+    static void EndSingleTimeCommands(VkCommandBuffer buffer, VkQueue graphicsQueue, const CommandPool& pool);
 private:
 
     void CreateBuffer(const CommandPool &commandPool);

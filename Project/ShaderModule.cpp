@@ -97,10 +97,47 @@ void ShaderModule::CreateDiscriptorSetLayout()
     uboLayoutBinding.stageFlags         = VK_SHADER_STAGE_VERTEX_BIT;
     uboLayoutBinding.pImmutableSamplers = nullptr;
 
+    VkDescriptorSetLayoutBinding albedoSamplerLayoutBinding{};
+    albedoSamplerLayoutBinding.binding = 1;
+    albedoSamplerLayoutBinding.descriptorCount = 1;
+    albedoSamplerLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
+    albedoSamplerLayoutBinding.pImmutableSamplers = nullptr;
+    albedoSamplerLayoutBinding.stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
+
+    VkDescriptorSetLayoutBinding normalSamplerLayoutBinding{};
+    normalSamplerLayoutBinding.binding = 2;
+    normalSamplerLayoutBinding.descriptorCount = 1;
+    normalSamplerLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
+    normalSamplerLayoutBinding.pImmutableSamplers = nullptr;
+    normalSamplerLayoutBinding.stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
+
+    VkDescriptorSetLayoutBinding roughnessSamplerLayoutBinding{};
+    roughnessSamplerLayoutBinding.binding = 3;
+    roughnessSamplerLayoutBinding.descriptorCount = 1;
+    roughnessSamplerLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
+    roughnessSamplerLayoutBinding.pImmutableSamplers = nullptr;
+    roughnessSamplerLayoutBinding.stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
+
+    VkDescriptorSetLayoutBinding specularSamplerLayoutBinding{};
+    specularSamplerLayoutBinding.binding = 4;
+    specularSamplerLayoutBinding.descriptorCount = 1;
+    specularSamplerLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
+    specularSamplerLayoutBinding.pImmutableSamplers = nullptr;
+    specularSamplerLayoutBinding.stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
+
+    std::array<VkDescriptorSetLayoutBinding,5> bindings = {
+                                                           uboLayoutBinding,
+                                                           albedoSamplerLayoutBinding,
+                                                           normalSamplerLayoutBinding,
+                                                           roughnessSamplerLayoutBinding,
+                                                           specularSamplerLayoutBinding
+                                                            };
+
+
     VkDescriptorSetLayoutCreateInfo layoutInfo{};
     layoutInfo.sType        = VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO;
-    layoutInfo.bindingCount = 1;
-    layoutInfo.pBindings    = &uboLayoutBinding;
+    layoutInfo.bindingCount = static_cast<uint32_t>(bindings.size());
+    layoutInfo.pBindings    = bindings.data();
     if (vkCreateDescriptorSetLayout(VulkanBase::device, &layoutInfo, nullptr, &m_DescriptorSetLayout) != VK_SUCCESS)
     {
         throw std::runtime_error("failed to create descriptor set layout");

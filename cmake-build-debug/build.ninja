@@ -2204,7 +2204,7 @@ build cmake_object_order_depends_target_VulkanLab01: phony || Project\Shaders Pr
 
 build Project\CMakeFiles\VulkanLab01.dir\main.cpp.obj: CXX_COMPILER__VulkanLab01_unscanned_Debug C$:\Git\GraphicsProgRestored\Project\main.cpp || cmake_object_order_depends_target_VulkanLab01
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17
-  INCLUDES = -IC:\VulkanSDK\1.3.275.0\Include -IC:\Git\GraphicsProgRestored\Project -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\glfw-src\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\tinyobjloader-src
+  INCLUDES = -IC:\VulkanSDK\1.3.275.0\Include -IC:\Git\GraphicsProgRestored\Project -IC:\Git\GraphicsProgRestored\Project\libs\stb\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\glfw-src\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\tinyobjloader-src
   OBJECT_DIR = Project\CMakeFiles\VulkanLab01.dir
   OBJECT_FILE_DIR = Project\CMakeFiles\VulkanLab01.dir
   TARGET_COMPILE_PDB = Project\CMakeFiles\VulkanLab01.dir\
@@ -2212,7 +2212,7 @@ build Project\CMakeFiles\VulkanLab01.dir\main.cpp.obj: CXX_COMPILER__VulkanLab01
 
 build Project\CMakeFiles\VulkanLab01.dir\ShaderModule.cpp.obj: CXX_COMPILER__VulkanLab01_unscanned_Debug C$:\Git\GraphicsProgRestored\Project\ShaderModule.cpp || cmake_object_order_depends_target_VulkanLab01
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17
-  INCLUDES = -IC:\VulkanSDK\1.3.275.0\Include -IC:\Git\GraphicsProgRestored\Project -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\glfw-src\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\tinyobjloader-src
+  INCLUDES = -IC:\VulkanSDK\1.3.275.0\Include -IC:\Git\GraphicsProgRestored\Project -IC:\Git\GraphicsProgRestored\Project\libs\stb\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\glfw-src\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\tinyobjloader-src
   OBJECT_DIR = Project\CMakeFiles\VulkanLab01.dir
   OBJECT_FILE_DIR = Project\CMakeFiles\VulkanLab01.dir
   TARGET_COMPILE_PDB = Project\CMakeFiles\VulkanLab01.dir\
@@ -2220,7 +2220,7 @@ build Project\CMakeFiles\VulkanLab01.dir\ShaderModule.cpp.obj: CXX_COMPILER__Vul
 
 build Project\CMakeFiles\VulkanLab01.dir\CommandPool.cpp.obj: CXX_COMPILER__VulkanLab01_unscanned_Debug C$:\Git\GraphicsProgRestored\Project\CommandPool.cpp || cmake_object_order_depends_target_VulkanLab01
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17
-  INCLUDES = -IC:\VulkanSDK\1.3.275.0\Include -IC:\Git\GraphicsProgRestored\Project -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\glfw-src\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\tinyobjloader-src
+  INCLUDES = -IC:\VulkanSDK\1.3.275.0\Include -IC:\Git\GraphicsProgRestored\Project -IC:\Git\GraphicsProgRestored\Project\libs\stb\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\glfw-src\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\tinyobjloader-src
   OBJECT_DIR = Project\CMakeFiles\VulkanLab01.dir
   OBJECT_FILE_DIR = Project\CMakeFiles\VulkanLab01.dir
   TARGET_COMPILE_PDB = Project\CMakeFiles\VulkanLab01.dir\
@@ -2228,7 +2228,7 @@ build Project\CMakeFiles\VulkanLab01.dir\CommandPool.cpp.obj: CXX_COMPILER__Vulk
 
 build Project\CMakeFiles\VulkanLab01.dir\CommandBuffer.cpp.obj: CXX_COMPILER__VulkanLab01_unscanned_Debug C$:\Git\GraphicsProgRestored\Project\CommandBuffer.cpp || cmake_object_order_depends_target_VulkanLab01
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17
-  INCLUDES = -IC:\VulkanSDK\1.3.275.0\Include -IC:\Git\GraphicsProgRestored\Project -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\glfw-src\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\tinyobjloader-src
+  INCLUDES = -IC:\VulkanSDK\1.3.275.0\Include -IC:\Git\GraphicsProgRestored\Project -IC:\Git\GraphicsProgRestored\Project\libs\stb\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\glfw-src\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\tinyobjloader-src
   OBJECT_DIR = Project\CMakeFiles\VulkanLab01.dir
   OBJECT_FILE_DIR = Project\CMakeFiles\VulkanLab01.dir
   TARGET_COMPILE_PDB = Project\CMakeFiles\VulkanLab01.dir\
@@ -2236,7 +2236,7 @@ build Project\CMakeFiles\VulkanLab01.dir\CommandBuffer.cpp.obj: CXX_COMPILER__Vu
 
 build Project\CMakeFiles\VulkanLab01.dir\vulkanbase\VulkanBase.cpp.obj: CXX_COMPILER__VulkanLab01_unscanned_Debug C$:\Git\GraphicsProgRestored\Project\vulkanbase\VulkanBase.cpp || cmake_object_order_depends_target_VulkanLab01
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17
-  INCLUDES = -IC:\VulkanSDK\1.3.275.0\Include -IC:\Git\GraphicsProgRestored\Project -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\glfw-src\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\tinyobjloader-src
+  INCLUDES = -IC:\VulkanSDK\1.3.275.0\Include -IC:\Git\GraphicsProgRestored\Project -IC:\Git\GraphicsProgRestored\Project\libs\stb\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\glfw-src\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\tinyobjloader-src
   OBJECT_DIR = Project\CMakeFiles\VulkanLab01.dir
   OBJECT_FILE_DIR = Project\CMakeFiles\VulkanLab01.dir\vulkanbase
   TARGET_COMPILE_PDB = Project\CMakeFiles\VulkanLab01.dir\
@@ -2244,7 +2244,7 @@ build Project\CMakeFiles\VulkanLab01.dir\vulkanbase\VulkanBase.cpp.obj: CXX_COMP
 
 build Project\CMakeFiles\VulkanLab01.dir\DataBuffer.cpp.obj: CXX_COMPILER__VulkanLab01_unscanned_Debug C$:\Git\GraphicsProgRestored\Project\DataBuffer.cpp || cmake_object_order_depends_target_VulkanLab01
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17
-  INCLUDES = -IC:\VulkanSDK\1.3.275.0\Include -IC:\Git\GraphicsProgRestored\Project -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\glfw-src\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\tinyobjloader-src
+  INCLUDES = -IC:\VulkanSDK\1.3.275.0\Include -IC:\Git\GraphicsProgRestored\Project -IC:\Git\GraphicsProgRestored\Project\libs\stb\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\glfw-src\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\tinyobjloader-src
   OBJECT_DIR = Project\CMakeFiles\VulkanLab01.dir
   OBJECT_FILE_DIR = Project\CMakeFiles\VulkanLab01.dir
   TARGET_COMPILE_PDB = Project\CMakeFiles\VulkanLab01.dir\
@@ -2252,7 +2252,7 @@ build Project\CMakeFiles\VulkanLab01.dir\DataBuffer.cpp.obj: CXX_COMPILER__Vulka
 
 build Project\CMakeFiles\VulkanLab01.dir\Mesh.cpp.obj: CXX_COMPILER__VulkanLab01_unscanned_Debug C$:\Git\GraphicsProgRestored\Project\Mesh.cpp || cmake_object_order_depends_target_VulkanLab01
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17
-  INCLUDES = -IC:\VulkanSDK\1.3.275.0\Include -IC:\Git\GraphicsProgRestored\Project -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\glfw-src\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\tinyobjloader-src
+  INCLUDES = -IC:\VulkanSDK\1.3.275.0\Include -IC:\Git\GraphicsProgRestored\Project -IC:\Git\GraphicsProgRestored\Project\libs\stb\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\glfw-src\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\tinyobjloader-src
   OBJECT_DIR = Project\CMakeFiles\VulkanLab01.dir
   OBJECT_FILE_DIR = Project\CMakeFiles\VulkanLab01.dir
   TARGET_COMPILE_PDB = Project\CMakeFiles\VulkanLab01.dir\
@@ -2260,7 +2260,7 @@ build Project\CMakeFiles\VulkanLab01.dir\Mesh.cpp.obj: CXX_COMPILER__VulkanLab01
 
 build Project\CMakeFiles\VulkanLab01.dir\GraphicsPipeline.cpp.obj: CXX_COMPILER__VulkanLab01_unscanned_Debug C$:\Git\GraphicsProgRestored\Project\GraphicsPipeline.cpp || cmake_object_order_depends_target_VulkanLab01
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17
-  INCLUDES = -IC:\VulkanSDK\1.3.275.0\Include -IC:\Git\GraphicsProgRestored\Project -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\glfw-src\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\tinyobjloader-src
+  INCLUDES = -IC:\VulkanSDK\1.3.275.0\Include -IC:\Git\GraphicsProgRestored\Project -IC:\Git\GraphicsProgRestored\Project\libs\stb\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\glfw-src\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\tinyobjloader-src
   OBJECT_DIR = Project\CMakeFiles\VulkanLab01.dir
   OBJECT_FILE_DIR = Project\CMakeFiles\VulkanLab01.dir
   TARGET_COMPILE_PDB = Project\CMakeFiles\VulkanLab01.dir\
@@ -2268,7 +2268,7 @@ build Project\CMakeFiles\VulkanLab01.dir\GraphicsPipeline.cpp.obj: CXX_COMPILER_
 
 build Project\CMakeFiles\VulkanLab01.dir\Scene.cpp.obj: CXX_COMPILER__VulkanLab01_unscanned_Debug C$:\Git\GraphicsProgRestored\Project\Scene.cpp || cmake_object_order_depends_target_VulkanLab01
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17
-  INCLUDES = -IC:\VulkanSDK\1.3.275.0\Include -IC:\Git\GraphicsProgRestored\Project -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\glfw-src\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\tinyobjloader-src
+  INCLUDES = -IC:\VulkanSDK\1.3.275.0\Include -IC:\Git\GraphicsProgRestored\Project -IC:\Git\GraphicsProgRestored\Project\libs\stb\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\glfw-src\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\tinyobjloader-src
   OBJECT_DIR = Project\CMakeFiles\VulkanLab01.dir
   OBJECT_FILE_DIR = Project\CMakeFiles\VulkanLab01.dir
   TARGET_COMPILE_PDB = Project\CMakeFiles\VulkanLab01.dir\
@@ -2276,7 +2276,7 @@ build Project\CMakeFiles\VulkanLab01.dir\Scene.cpp.obj: CXX_COMPILER__VulkanLab0
 
 build Project\CMakeFiles\VulkanLab01.dir\Camera.cpp.obj: CXX_COMPILER__VulkanLab01_unscanned_Debug C$:\Git\GraphicsProgRestored\Project\Camera.cpp || cmake_object_order_depends_target_VulkanLab01
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17
-  INCLUDES = -IC:\VulkanSDK\1.3.275.0\Include -IC:\Git\GraphicsProgRestored\Project -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\glfw-src\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\tinyobjloader-src
+  INCLUDES = -IC:\VulkanSDK\1.3.275.0\Include -IC:\Git\GraphicsProgRestored\Project -IC:\Git\GraphicsProgRestored\Project\libs\stb\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\glfw-src\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\tinyobjloader-src
   OBJECT_DIR = Project\CMakeFiles\VulkanLab01.dir
   OBJECT_FILE_DIR = Project\CMakeFiles\VulkanLab01.dir
   TARGET_COMPILE_PDB = Project\CMakeFiles\VulkanLab01.dir\
@@ -2284,7 +2284,7 @@ build Project\CMakeFiles\VulkanLab01.dir\Camera.cpp.obj: CXX_COMPILER__VulkanLab
 
 build Project\CMakeFiles\VulkanLab01.dir\DescriptorPool.cpp.obj: CXX_COMPILER__VulkanLab01_unscanned_Debug C$:\Git\GraphicsProgRestored\Project\DescriptorPool.cpp || cmake_object_order_depends_target_VulkanLab01
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17
-  INCLUDES = -IC:\VulkanSDK\1.3.275.0\Include -IC:\Git\GraphicsProgRestored\Project -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\glfw-src\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\tinyobjloader-src
+  INCLUDES = -IC:\VulkanSDK\1.3.275.0\Include -IC:\Git\GraphicsProgRestored\Project -IC:\Git\GraphicsProgRestored\Project\libs\stb\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\glfw-src\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\tinyobjloader-src
   OBJECT_DIR = Project\CMakeFiles\VulkanLab01.dir
   OBJECT_FILE_DIR = Project\CMakeFiles\VulkanLab01.dir
   TARGET_COMPILE_PDB = Project\CMakeFiles\VulkanLab01.dir\
@@ -2292,7 +2292,7 @@ build Project\CMakeFiles\VulkanLab01.dir\DescriptorPool.cpp.obj: CXX_COMPILER__V
 
 build Project\CMakeFiles\VulkanLab01.dir\Mesh3D.cpp.obj: CXX_COMPILER__VulkanLab01_unscanned_Debug C$:\Git\GraphicsProgRestored\Project\Mesh3D.cpp || cmake_object_order_depends_target_VulkanLab01
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17
-  INCLUDES = -IC:\VulkanSDK\1.3.275.0\Include -IC:\Git\GraphicsProgRestored\Project -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\glfw-src\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\tinyobjloader-src
+  INCLUDES = -IC:\VulkanSDK\1.3.275.0\Include -IC:\Git\GraphicsProgRestored\Project -IC:\Git\GraphicsProgRestored\Project\libs\stb\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\glfw-src\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\tinyobjloader-src
   OBJECT_DIR = Project\CMakeFiles\VulkanLab01.dir
   OBJECT_FILE_DIR = Project\CMakeFiles\VulkanLab01.dir
   TARGET_COMPILE_PDB = Project\CMakeFiles\VulkanLab01.dir\
@@ -2300,7 +2300,23 @@ build Project\CMakeFiles\VulkanLab01.dir\Mesh3D.cpp.obj: CXX_COMPILER__VulkanLab
 
 build Project\CMakeFiles\VulkanLab01.dir\DeltaTime.cpp.obj: CXX_COMPILER__VulkanLab01_unscanned_Debug C$:\Git\GraphicsProgRestored\Project\DeltaTime.cpp || cmake_object_order_depends_target_VulkanLab01
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17
-  INCLUDES = -IC:\VulkanSDK\1.3.275.0\Include -IC:\Git\GraphicsProgRestored\Project -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\glfw-src\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\tinyobjloader-src
+  INCLUDES = -IC:\VulkanSDK\1.3.275.0\Include -IC:\Git\GraphicsProgRestored\Project -IC:\Git\GraphicsProgRestored\Project\libs\stb\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\glfw-src\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\tinyobjloader-src
+  OBJECT_DIR = Project\CMakeFiles\VulkanLab01.dir
+  OBJECT_FILE_DIR = Project\CMakeFiles\VulkanLab01.dir
+  TARGET_COMPILE_PDB = Project\CMakeFiles\VulkanLab01.dir\
+  TARGET_PDB = Project\VulkanLab01.pdb
+
+build Project\CMakeFiles\VulkanLab01.dir\Textures\Texture.cpp.obj: CXX_COMPILER__VulkanLab01_unscanned_Debug C$:\Git\GraphicsProgRestored\Project\Textures\Texture.cpp || cmake_object_order_depends_target_VulkanLab01
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17
+  INCLUDES = -IC:\VulkanSDK\1.3.275.0\Include -IC:\Git\GraphicsProgRestored\Project -IC:\Git\GraphicsProgRestored\Project\libs\stb\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\glfw-src\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\tinyobjloader-src
+  OBJECT_DIR = Project\CMakeFiles\VulkanLab01.dir
+  OBJECT_FILE_DIR = Project\CMakeFiles\VulkanLab01.dir\Textures
+  TARGET_COMPILE_PDB = Project\CMakeFiles\VulkanLab01.dir\
+  TARGET_PDB = Project\VulkanLab01.pdb
+
+build Project\CMakeFiles\VulkanLab01.dir\DepthBuffer.cpp.obj: CXX_COMPILER__VulkanLab01_unscanned_Debug C$:\Git\GraphicsProgRestored\Project\DepthBuffer.cpp || cmake_object_order_depends_target_VulkanLab01
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17
+  INCLUDES = -IC:\VulkanSDK\1.3.275.0\Include -IC:\Git\GraphicsProgRestored\Project -IC:\Git\GraphicsProgRestored\Project\libs\stb\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\glfw-src\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\tinyobjloader-src
   OBJECT_DIR = Project\CMakeFiles\VulkanLab01.dir
   OBJECT_FILE_DIR = Project\CMakeFiles\VulkanLab01.dir
   TARGET_COMPILE_PDB = Project\CMakeFiles\VulkanLab01.dir\
@@ -2308,7 +2324,7 @@ build Project\CMakeFiles\VulkanLab01.dir\DeltaTime.cpp.obj: CXX_COMPILER__Vulkan
 
 build Project\CMakeFiles\VulkanLab01.dir\vulkanbase\VulkanUtil.cpp.obj: CXX_COMPILER__VulkanLab01_unscanned_Debug C$:\Git\GraphicsProgRestored\Project\vulkanbase\VulkanUtil.cpp || cmake_object_order_depends_target_VulkanLab01
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17
-  INCLUDES = -IC:\VulkanSDK\1.3.275.0\Include -IC:\Git\GraphicsProgRestored\Project -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\glfw-src\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\tinyobjloader-src
+  INCLUDES = -IC:\VulkanSDK\1.3.275.0\Include -IC:\Git\GraphicsProgRestored\Project -IC:\Git\GraphicsProgRestored\Project\libs\stb\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\glfw-src\include -IC:\Git\GraphicsProgRestored\cmake-build-debug\_deps\tinyobjloader-src
   OBJECT_DIR = Project\CMakeFiles\VulkanLab01.dir
   OBJECT_FILE_DIR = Project\CMakeFiles\VulkanLab01.dir\vulkanbase
   TARGET_COMPILE_PDB = Project\CMakeFiles\VulkanLab01.dir\
@@ -2322,7 +2338,7 @@ build Project\CMakeFiles\VulkanLab01.dir\vulkanbase\VulkanUtil.cpp.obj: CXX_COMP
 #############################################
 # Link the executable Project\VulkanLab01.exe
 
-build Project\VulkanLab01.exe: CXX_EXECUTABLE_LINKER__VulkanLab01_Debug Project\CMakeFiles\VulkanLab01.dir\main.cpp.obj Project\CMakeFiles\VulkanLab01.dir\ShaderModule.cpp.obj Project\CMakeFiles\VulkanLab01.dir\CommandPool.cpp.obj Project\CMakeFiles\VulkanLab01.dir\CommandBuffer.cpp.obj Project\CMakeFiles\VulkanLab01.dir\vulkanbase\VulkanBase.cpp.obj Project\CMakeFiles\VulkanLab01.dir\DataBuffer.cpp.obj Project\CMakeFiles\VulkanLab01.dir\Mesh.cpp.obj Project\CMakeFiles\VulkanLab01.dir\GraphicsPipeline.cpp.obj Project\CMakeFiles\VulkanLab01.dir\Scene.cpp.obj Project\CMakeFiles\VulkanLab01.dir\Camera.cpp.obj Project\CMakeFiles\VulkanLab01.dir\DescriptorPool.cpp.obj Project\CMakeFiles\VulkanLab01.dir\Mesh3D.cpp.obj Project\CMakeFiles\VulkanLab01.dir\DeltaTime.cpp.obj Project\CMakeFiles\VulkanLab01.dir\vulkanbase\VulkanUtil.cpp.obj | C$:\VulkanSDK\1.3.275.0\Lib\vulkan-1.lib _deps\glfw-build\src\glfw3.lib _deps\tinyobjloader-build\tinyobjloader.lib || Project\Shaders Project\copy_resources _deps\glfw-build\src\glfw3.lib _deps\tinyobjloader-build\tinyobjloader.lib
+build Project\VulkanLab01.exe: CXX_EXECUTABLE_LINKER__VulkanLab01_Debug Project\CMakeFiles\VulkanLab01.dir\main.cpp.obj Project\CMakeFiles\VulkanLab01.dir\ShaderModule.cpp.obj Project\CMakeFiles\VulkanLab01.dir\CommandPool.cpp.obj Project\CMakeFiles\VulkanLab01.dir\CommandBuffer.cpp.obj Project\CMakeFiles\VulkanLab01.dir\vulkanbase\VulkanBase.cpp.obj Project\CMakeFiles\VulkanLab01.dir\DataBuffer.cpp.obj Project\CMakeFiles\VulkanLab01.dir\Mesh.cpp.obj Project\CMakeFiles\VulkanLab01.dir\GraphicsPipeline.cpp.obj Project\CMakeFiles\VulkanLab01.dir\Scene.cpp.obj Project\CMakeFiles\VulkanLab01.dir\Camera.cpp.obj Project\CMakeFiles\VulkanLab01.dir\DescriptorPool.cpp.obj Project\CMakeFiles\VulkanLab01.dir\Mesh3D.cpp.obj Project\CMakeFiles\VulkanLab01.dir\DeltaTime.cpp.obj Project\CMakeFiles\VulkanLab01.dir\Textures\Texture.cpp.obj Project\CMakeFiles\VulkanLab01.dir\DepthBuffer.cpp.obj Project\CMakeFiles\VulkanLab01.dir\vulkanbase\VulkanUtil.cpp.obj | C$:\VulkanSDK\1.3.275.0\Lib\vulkan-1.lib _deps\glfw-build\src\glfw3.lib _deps\tinyobjloader-build\tinyobjloader.lib || Project\Shaders Project\copy_resources _deps\glfw-build\src\glfw3.lib _deps\tinyobjloader-build\tinyobjloader.lib
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
   LINK_LIBRARIES = C:\VulkanSDK\1.3.275.0\Lib\vulkan-1.lib  _deps\glfw-build\src\glfw3.lib  _deps\tinyobjloader-build\tinyobjloader.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib

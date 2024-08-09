@@ -78,5 +78,5 @@ void Mesh::AddVertex(const glm::vec2& position, const glm::vec3& color)
 {
     Vertex2D vert{position, color};
     m_Vertices.emplace_back(vert);
-    m_Indices.emplace_back(m_Indices.size());
+    m_Indices.emplace_back(static_cast<int>(m_Indices.size()));
 }

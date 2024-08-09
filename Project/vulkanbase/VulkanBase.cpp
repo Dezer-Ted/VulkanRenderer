@@ -2,7 +2,7 @@
 // Created by theom on 05.04.2024.
 //
 #include "vulkanbase/VulkanBase.h"
-
+#include "lib/stb_image.h"
 void VulkanBase::InitWindow()
 {
     device         = VK_NULL_HANDLE;
@@ -12,7 +12,7 @@ void VulkanBase::InitWindow()
     glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
     window = glfwCreateWindow(WIDTH, HEIGHT, "Vulkan", nullptr, nullptr);
     glfwSetWindowUserPointer(window, this);
-    m_Camera = std::make_unique<Camera>(Camera{90.f,{0.f,0.f,-20.f},static_cast<float>(WIDTH)/static_cast<float>(HEIGHT)});
+    m_Camera = std::make_unique<Camera>(Camera{45.f,{0.f,0.f,-20.f},static_cast<float>(WIDTH)/static_cast<float>(HEIGHT)});
 
     glfwSetKeyCallback(window, [](GLFWwindow* window, int key, int scancode, int action, int mods)
     {
@@ -40,20 +40,29 @@ void VulkanBase::KeyEvent(int key, int scancode, int action, int mods)
 {
     if (key == GLFW_KEY_W && (action == GLFW_REPEAT || action == GLFW_PRESS))
     {
-        m_Camera->m_Position += m_Camera->m_Forward* m_Camera->m_Speed;
+        m_Camera->m_Position += m_Camera->m_Forward* (m_Camera->m_Speed*dae::Singleton<DeltaTime>::GetInstance().GetDeltaTime());
     }
     if (key == GLFW_KEY_S && (action == GLFW_REPEAT || action == GLFW_PRESS))
     {
-        m_Camera->m_Position += -m_Camera->m_Forward* m_Camera->m_Speed;
+        m_Camera->m_Position += -m_Camera->m_Forward * (m_Camera->m_Speed * dae::Singleton<DeltaTime>::GetInstance().GetDeltaTime());
     }
     if (key == GLFW_KEY_D && (action == GLFW_REPEAT || action == GLFW_PRESS))
     {
-        m_Camera->m_Position += m_Camera->m_Right * m_Camera->m_Speed;
+        m_Camera->m_Position += m_Camera->m_Right * (m_Camera->m_Speed*dae::Singleton<DeltaTime>::GetInstance().GetDeltaTime());
     }
     if (key == GLFW_KEY_A && (action == GLFW_REPEAT || action == GLFW_PRESS))
     {
-        m_Camera->m_Position += -m_Camera->m_Right * m_Camera->m_Speed;
+        m_Camera->m_Position += -m_Camera->m_Right * (m_Camera->m_Speed*dae::Singleton<DeltaTime>::GetInstance().GetDeltaTime());
     }
+    if(key == GLFW_KEY_F2 && action == GLFW_PRESS) {
+        ToggleNormalMap();
+    }
+    if(key == GLFW_KEY_F3 && action == GLFW_PRESS) {
+        CycleShadingMode();
+    }
+
+    //std::cout << dae::Singleton<DeltaTime>::GetInstance().GetDeltaTime() << std::endl;
+    //std::cout<<"X:" << m_Camera->m_Position.x << std::endl << "Y: " << m_Camera->m_Position.y << std::endl << "Z: " << m_Camera->m_Position.z << std::endl;
 }
 
 void VulkanBase::MouseMove(GLFWwindow* window, double xpos, double ypos)
@@ -64,8 +73,8 @@ void VulkanBase::MouseMove(GLFWwindow* window, double xpos, double ypos)
         float dx = static_cast<float>(xpos) - m_DragStart.x;
         float dy = static_cast<float>(ypos) - m_DragStart.y;
         std::cout << " X:" << dx << "Y:" << dy << std::endl;
-        m_Camera->UpdateYaw(dx);
-        m_Camera->UpdatePitch(dy);
+        m_Camera->UpdateYaw(dx*dae::Singleton<DeltaTime>::GetInstance().GetDeltaTime());
+        m_Camera->UpdatePitch(dy*dae::Singleton<DeltaTime>::GetInstance().GetDeltaTime());
     }
 }
 
@@ -91,10 +100,12 @@ void VulkanBase::DrawFrame(uint32_t imageIndex)
     renderPassInfo.framebuffer       = swapChainFramebuffers[imageIndex];
     renderPassInfo.renderArea.offset = {0, 0};
     renderPassInfo.renderArea.extent = swapChainExtent;
+    std::array<VkClearValue,2>clearValues{};
+    clearValues[0].color = {0.f,0.f,0.f,1.f};
+    clearValues[1].depthStencil = {1.f,0};
 
-    VkClearValue clearColor = {{{0.0f, 0.0f, 0.0f, 1.0f}}};
-    renderPassInfo.clearValueCount = 1;
-    renderPassInfo.pClearValues    = &clearColor;
+    renderPassInfo.clearValueCount = static_cast<uint32_t>(clearValues.size());
+    renderPassInfo.pClearValues    = clearValues.data();
 
     vkCmdBeginRenderPass(m_CommandBuffer->GetCommandBuffer(), &renderPassInfo, VK_SUBPASS_CONTENTS_INLINE);
 
@@ -178,15 +189,20 @@ void VulkanBase::InitVulkan()
     ShaderModule shaderMod3D{"shaders/shader3D.vert.spv", "shaders/shader3D.frag.spv", device};
     m_pGraphicsPipeline2D->CreateGraphicsPipeline(shaderMod2D, shaderMod2D.CreateVertexInputStateInfo2D());
     m_pGraphicsPipeline3D->CreateGraphicsPipeline(shaderMod3D, shaderMod3D.CreateVertexInputStateInfo3D());
-    createFrameBuffers();
     // week 02
 
     m_CommandPool   = std::make_unique<CommandPool>(findQueueFamilies(physicalDevice));
     m_CommandBuffer = std::make_unique<CommandBuffer>(*m_CommandPool, this);
-    m_pScene        = std::make_unique<Scene>();
-    m_pScene->InitMeshes(*m_Camera);
-    m_pScene->CompoundUpload(*m_CommandPool, graphicsQueue);
+    m_DepthBuffer = std::make_unique<dae::DepthBuffer>(swapChainExtent.width,
+                                                        swapChainExtent.height,
+                                                        *m_CommandPool,
+                                                        graphicsQueue
+                                                       );
 
+    createFrameBuffers();
+    m_pScene        = std::make_unique<Scene>();
+    m_pScene->InitMeshes(*m_Camera,*m_CommandPool,graphicsQueue);
+    m_pScene->CompoundUpload(*m_CommandPool, graphicsQueue);
     // week 06
     createSyncObjects();
     shaderMod2D.Destroy();
@@ -200,15 +216,16 @@ void VulkanBase::createFrameBuffers()
     swapChainFramebuffers.resize(swapChainImageViews.size());
     for (size_t i = 0; i < swapChainImageViews.size(); i++)
     {
-        VkImageView attachments[] = {
-                swapChainImageViews[i]
-        };
 
+        std::array<VkImageView,2> attachments = {
+                swapChainImageViews[i],
+                m_DepthBuffer->GetDepthView()
+        };
         VkFramebufferCreateInfo framebufferInfo{};
         framebufferInfo.sType           = VK_STRUCTURE_TYPE_FRAMEBUFFER_CREATE_INFO;
         framebufferInfo.renderPass      = m_pGraphicsPipeline2D->GetRenderPass();
-        framebufferInfo.attachmentCount = 1;
-        framebufferInfo.pAttachments    = attachments;
+        framebufferInfo.attachmentCount = static_cast<uint32_t>(attachments.size());
+        framebufferInfo.pAttachments    = attachments.data();
         framebufferInfo.width           = swapChainExtent.width;
         framebufferInfo.height          = swapChainExtent.height;
         framebufferInfo.layers          = 1;
@@ -218,6 +235,7 @@ void VulkanBase::createFrameBuffers()
             throw std::runtime_error("failed to create framebuffer!");
         }
     }
+
 }
 
 SwapChainSupportDetails VulkanBase::querySwapChainSupport(VkPhysicalDevice physDevice)
@@ -424,7 +442,9 @@ bool VulkanBase::isDeviceSuitable(VkPhysicalDevice phyDevice)
 {
     QueueFamilyIndices indices             = findQueueFamilies(phyDevice);
     bool               extensionsSupported = checkDeviceExtensionSupport(phyDevice);
-    return indices.isComplete() && extensionsSupported;
+    VkPhysicalDeviceFeatures supportedFeatures;
+    vkGetPhysicalDeviceFeatures(phyDevice, &supportedFeatures);
+    return indices.isComplete() && extensionsSupported && supportedFeatures.samplerAnisotropy;
 
 }
 
@@ -454,6 +474,7 @@ void VulkanBase::createLogicalDevice()
     queueCreateInfo.queueCount       = 1;
 
     VkPhysicalDeviceFeatures deviceFeatures{};
+    deviceFeatures.samplerAnisotropy = VK_TRUE;
 
     VkDeviceCreateInfo createInfo{};
     createInfo.sType = VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO;
@@ -688,3 +709,21 @@ void VulkanBase::createInstance()
         throw std::runtime_error("failed to create instance!");
     }
 }
+
+void VulkanBase::CycleShadingMode() {
+    Mesh3D::constants.m_ShadingMode++;
+    if(Mesh3D::constants.m_ShadingMode > 3 ) {
+        Mesh3D::constants.m_ShadingMode = 0;
+    }
+}
+
+void VulkanBase::ToggleNormalMap() {
+    if(Mesh3D::constants.m_EnableNormals == 1) {
+        Mesh3D::constants.m_EnableNormals = 0;
+    }
+    else {
+        Mesh3D::constants.m_EnableNormals = 1;
+    }
+}
+
+

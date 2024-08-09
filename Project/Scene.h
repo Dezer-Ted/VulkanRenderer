@@ -21,7 +21,7 @@ public:
     Scene& operator=(const Scene& ) = delete;
     Scene& operator=(Scene&& ) = delete;
     ~Scene() = default;
-    void InitMeshes(Camera &cam);
+    void InitMeshes(Camera &cam, const CommandPool &pool, VkQueue graphicsQueue);
     void Draw(const CommandBuffer& buffer, uint32_t currentFrame, const GraphicsPipeline& pipeline2D,
               const GraphicsPipeline& pipeline3D);
     void Destroy();
@@ -30,6 +30,10 @@ public:
 
 private:
     DescriptorPool m_DescriptorPool{};
+    std::unique_ptr<dae::Texture> m_pAlbedoMap{nullptr};
+    std::unique_ptr<dae::Texture> m_pNormalMap{nullptr};
+    std::unique_ptr<dae::Texture> m_pRoughnessMap{nullptr};
+    std::unique_ptr<dae::Texture> m_pSpecularMap{nullptr};
     std::vector<std::unique_ptr<Mesh>> m_Meshes;
     std::vector<std::unique_ptr<Mesh3D>> m_Meshes3D;
     VertexUBO m_Ubo{};

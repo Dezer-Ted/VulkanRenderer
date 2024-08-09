@@ -17,8 +17,8 @@ public:
     const float m_NearPlane{0.1f};
     const float m_FarPlane{10000};
     const float m_FOVRadian;
-    const float m_Speed{1.f};
-    const float m_RotationSpeed{0.1f};
+    const float m_Speed{300.f};
+    const float m_RotationSpeed{10.f};
     const float m_AspectRatio{};
 
     glm::vec3 m_Position{};
