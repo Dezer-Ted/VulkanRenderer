@@ -12,7 +12,7 @@ void VulkanBase::InitWindow()
     glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
     window = glfwCreateWindow(WIDTH, HEIGHT, "Vulkan", nullptr, nullptr);
     glfwSetWindowUserPointer(window, this);
-    m_Camera = std::make_unique<Camera>(Camera{45.f,{0.f,0.f,-20.f},static_cast<float>(WIDTH)/static_cast<float>(HEIGHT)});
+    m_Camera = std::make_unique<Camera>(Camera{45.f,{0.f,0.f,-60.f},static_cast<float>(WIDTH)/static_cast<float>(HEIGHT)});
 
     glfwSetKeyCallback(window, [](GLFWwindow* window, int key, int scancode, int action, int mods)
     {
@@ -185,8 +185,10 @@ void VulkanBase::InitVulkan()
     m_pGraphicsPipeline2D->CreateRenderPass(swapChainImageFormat);
     m_pGraphicsPipeline3D->CreateRenderPass(swapChainImageFormat);
     ShaderModule shaderMod2D{"shaders/shader2D.vert.spv", "shaders/shader2D.frag.spv", device};
+    shaderMod2D.shaderType = ShaderModuleType::Shader2D;
     shaderMod2D.CreateDiscriptorSetLayout();
     ShaderModule shaderMod3D{"shaders/shader3D.vert.spv", "shaders/shader3D.frag.spv", device};
+    shaderMod3D.shaderType = ShaderModuleType::Shader3D;
     m_pGraphicsPipeline2D->CreateGraphicsPipeline(shaderMod2D, shaderMod2D.CreateVertexInputStateInfo2D());
     m_pGraphicsPipeline3D->CreateGraphicsPipeline(shaderMod3D, shaderMod3D.CreateVertexInputStateInfo3D());
     // week 02

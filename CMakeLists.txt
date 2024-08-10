@@ -19,6 +19,12 @@ FetchContent_Declare(
         GIT_REPOSITORY https://github.com/tinyobjloader/tinyobjloader.git
         GIT_TAG v1.0.6
 )
+FetchContent_Declare(
+        json
+        GIT_REPOSITORY https://github.com/nlohmann/json.git
+        GIT_TAG v3.11.3
+)
+fetchcontent_makeavailable(json)
 FetchContent_MakeAvailable(tinyobjloader)
 FetchContent_MakeAvailable(glfw)
 

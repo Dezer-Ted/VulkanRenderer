@@ -3,6 +3,11 @@ C:/Git/GraphicsProgRestored/cmake-build-debug/CMakeFiles/rebuild_cache.dir
 C:/Git/GraphicsProgRestored/cmake-build-debug/CMakeFiles/list_install_components.dir
 C:/Git/GraphicsProgRestored/cmake-build-debug/CMakeFiles/install.dir
 C:/Git/GraphicsProgRestored/cmake-build-debug/CMakeFiles/install/local.dir
+C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/json-build/CMakeFiles/edit_cache.dir
+C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/json-build/CMakeFiles/rebuild_cache.dir
+C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/json-build/CMakeFiles/list_install_components.dir
+C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/json-build/CMakeFiles/install.dir
+C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/json-build/CMakeFiles/install/local.dir
 C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/tinyobjloader-build/CMakeFiles/tinyobjloader.dir
 C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/tinyobjloader-build/CMakeFiles/edit_cache.dir
 C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/tinyobjloader-build/CMakeFiles/rebuild_cache.dir

@@ -34,6 +34,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
+  include("C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/json-build/cmake_install.cmake")
   include("C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/tinyobjloader-build/cmake_install.cmake")
   include("C:/Git/GraphicsProgRestored/cmake-build-debug/_deps/glfw-build/cmake_install.cmake")
   include("C:/Git/GraphicsProgRestored/cmake-build-debug/Project/cmake_install.cmake")

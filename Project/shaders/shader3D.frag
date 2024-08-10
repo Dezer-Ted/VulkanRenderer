@@ -30,6 +30,7 @@ float saturate(float value) {
     }
 }
 
+
 vec3 Phong(float specularReflectance, float exp,vec3 viewDirection,vec3 normal) {
     vec3 specularReflectanceVector = vec3(specularReflectance,specularReflectance,specularReflectance);
     if(exp == 0) {
@@ -54,7 +55,7 @@ void main() {
     vec3 ambientOcclusion = vec3(0.003f,0.003f,0.003f);
     if(PushConstants.enableNormals == 1) {
         normal = texture(normalSampler,fragTexCoord);
-        normal = vec4( 2 * vec3(normal) - vec3(1, 1, 1),1);
+        normal = vec4( 2 * normal.xyz - vec3(1, 1, 1),1);
         vec3 binormal = cross(fragNormal, fragTangent);
         mat3 tangentSpaceAxis = mat3(fragTangent, binormal, fragNormal);
         normal = vec4(normalize(tangentSpaceAxis * normal.xyz),1);
@@ -62,15 +63,15 @@ void main() {
     else {
         normal = vec4(fragNormal,1);
     }
-    float observedArea = dot(vec3(normal),-lightDirection);
+    float observedArea = dot(normal.xyz,-lightDirection);
     if(observedArea < 0) {
         outColor = vec4(0.f,0.f,0.f,1.f);
         return;
     }
     vec4 albedoSample = texture(texSampler,fragTexCoord);
     float roughness = texture(roughnessSampler,fragTexCoord).r;
-    vec3 viewDirection = normalize(PushConstants.cameraPos-vec3(fragPos));
-    vec3 specular = Phong(texture(specularSampler,fragTexCoord).r,roughness*shininess,viewDirection,vec3(normal));
+    vec3 viewDirection = normalize(PushConstants.cameraPos-fragPos.xyz);
+    vec3 specular = Phong(texture(specularSampler,fragTexCoord).r,roughness*shininess,viewDirection,normal.xyz);
     vec3 diffuse = vec3(albedoSample) * lightIntensity / pi;
 
 
@@ -87,7 +88,7 @@ void main() {
         return;
     }
     else {
-        outColor = vec4(observedArea * diffuse + specular + ambientOcclusion ,1);
+        outColor = vec4(  observedArea * diffuse + specular + ambientOcclusion ,1);
         return;
     }
 }

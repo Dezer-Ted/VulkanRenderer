@@ -41,6 +41,7 @@ private:
     void
     CreateFace(const Vertex3D& topLeft, const Vertex3D& btmLeft, const Vertex3D& topRight, const Vertex3D& btmRight,
                bool isClockwise);
+    std::string EmptyStringToDefaultTexture(const std::string& path);
     DataBuffer            m_VertexBuffer{
             VK_BUFFER_USAGE_VERTEX_BUFFER_BIT,
             VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT

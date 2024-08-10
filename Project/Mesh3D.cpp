@@ -14,9 +14,8 @@
 #include <glm/ext/matrix_transform.hpp> // glm::translate, glm::rotate, glm::scale
 #include <glm/glm.hpp>
 #include <glm/ext/matrix_clip_space.hpp> // glm::perspective
-
 #define TINYOBJLOADER_IMPLEMENTATION
-
+#include "nlohmann/json.hpp"
 #include "tiny_obj_loader.h"
 
 
@@ -200,7 +199,7 @@ void Mesh3D::LoadModel(const std::string& filePath)
 
     }
     for(auto& v : m_Vertices) {
-        v.m_Tangent = glm::normalize( v.m_Tangent -  (glm::dot(v.m_Tangent,v.m_Normal)/glm::dot(v.m_Normal,v.m_Normal))) * v.m_Normal;
+        v.m_Tangent = glm::normalize( v.m_Tangent -  (glm::dot(v.m_Tangent,v.m_Normal)/glm::dot(v.m_Normal,v.m_Normal))* v.m_Normal);
     }
     m_VertexBuffer.MapMemory(m_Vertices.size() * sizeof(Vertex3D), m_Vertices.data());
     m_IndexBuffer.MapMemory(m_Indices.size() * sizeof(uint32_t), m_Indices.data());
@@ -223,10 +222,11 @@ void Mesh3D::Update(VertexUBO &ubo, uint32_t currentFrame) {
 void Mesh3D::LoadTexture(const CommandPool &pool, VkQueue graphicsQueue, const std::string &albedoPath,
                          const std::string &normalPath, const std::string &roughnessPath,
                          const std::string &specularPath) {
-    m_pAlbedoMap = std::make_unique<dae::Texture>(albedoPath, pool, graphicsQueue);
-    m_pNormalMap = std::make_unique<dae::Texture>(normalPath,pool,graphicsQueue);
-    m_pRoughnessMap = std::make_unique<dae::Texture>(roughnessPath,pool,graphicsQueue);
-    m_pSpecularMap = std::make_unique<dae::Texture>(specularPath, pool, graphicsQueue);
+
+    m_pAlbedoMap = std::make_unique<dae::Texture>(EmptyStringToDefaultTexture(albedoPath), pool, graphicsQueue);
+    m_pNormalMap = std::make_unique<dae::Texture>(EmptyStringToDefaultTexture(normalPath),pool,graphicsQueue);
+    m_pRoughnessMap = std::make_unique<dae::Texture>(EmptyStringToDefaultTexture(roughnessPath),pool,graphicsQueue);
+    m_pSpecularMap = std::make_unique<dae::Texture>(EmptyStringToDefaultTexture(specularPath), pool, graphicsQueue);
 
 }
 
@@ -254,4 +254,8 @@ void Mesh3D::InitPlane(const glm::vec3 &pos, float length) {
     CreateFace(bottomLeft,topLeft,topRight,bottomRight,true);
     m_VertexBuffer.MapMemory(m_Vertices.size() * sizeof(Vertex3D), m_Vertices.data());
     m_IndexBuffer.MapMemory(m_Indices.size() * sizeof(uint32_t), m_Indices.data());
+}
+
+std::string Mesh3D::EmptyStringToDefaultTexture(const std::string &path) {
+    return (path.empty()) ? "Models/white.png" : path;
 }

@@ -67,6 +67,8 @@ set(SOURCES
         Textures/Texture.h
         DepthBuffer.cpp
         DepthBuffer.h
+        SceneLoader.cpp
+        SceneLoader.h
 )
 
 # Create the executable
@@ -76,5 +78,6 @@ add_dependencies(${PROJECT_NAME} copy_resources)
 # Link libraries
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 target_link_libraries(${PROJECT_NAME} PRIVATE ${Vulkan_LIBRARIES} glfw)
+target_link_libraries(${PROJECT_NAME} PRIVATE nlohmann_json::nlohmann_json)
 target_link_libraries(${PROJECT_NAME} PRIVATE ${TINYOBJLOADER_LIBRARY_DIR} tinyobjloader)
 target_include_directories(${PROJECT_NAME} PRIVATE "${STB_DIR}/include/")

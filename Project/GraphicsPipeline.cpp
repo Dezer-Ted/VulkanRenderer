@@ -153,8 +153,14 @@ void GraphicsPipeline::CreateGraphicsPipeline(ShaderModule& shaderMod,
 
     VkPipelineDepthStencilStateCreateInfo depthStencil {};
     depthStencil.sType = VK_STRUCTURE_TYPE_PIPELINE_DEPTH_STENCIL_STATE_CREATE_INFO;
-    depthStencil.depthTestEnable = VK_TRUE;
-    depthStencil.depthWriteEnable = VK_TRUE;
+    if(shaderMod.shaderType == ShaderModuleType::Shader3D) {
+        depthStencil.depthTestEnable = VK_TRUE;
+        depthStencil.depthWriteEnable = VK_TRUE;
+    }
+    else {
+        depthStencil.depthTestEnable = VK_FALSE;
+        depthStencil.depthWriteEnable = VK_FALSE;
+    }
     depthStencil.depthCompareOp =VK_COMPARE_OP_LESS;
     depthStencil.depthBoundsTestEnable = VK_FALSE;
     depthStencil.minDepthBounds = 0.f;

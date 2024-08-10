@@ -9,7 +9,10 @@
 #include <string>
 #include<vector>
 #include "DataBuffer.h"
-
+enum class ShaderModuleType {
+    Shader2D,
+    Shader3D
+};
 class ShaderModule
 {
 public:
@@ -29,6 +32,7 @@ public:
     void CreateDiscriptorSetLayout();
     void Destroy();
     void DestroyDescriptorLayout();
+    ShaderModuleType shaderType{};
     inline static VkDescriptorSetLayout m_DescriptorSetLayout;
 private:
     VkPipelineShaderStageCreateInfo m_FragmentShaderStageCreateInfo;

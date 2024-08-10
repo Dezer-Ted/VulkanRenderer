@@ -27,7 +27,8 @@ public:
     void Destroy();
     void CompoundUpload(const CommandPool& pool, const VkQueue& graphicsQueue);
     void Update(Camera &cam, uint32_t currentFrame);
-
+    void Add2DMesh(std::unique_ptr<Mesh> mesh);
+    void Add3DMesh(std::unique_ptr<Mesh3D> mesh);
 private:
     DescriptorPool m_DescriptorPool{};
     std::unique_ptr<dae::Texture> m_pAlbedoMap{nullptr};
