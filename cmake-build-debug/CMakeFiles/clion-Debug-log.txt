@@ -30,6 +30,6 @@ CMake Deprecation Warning at cmake-build-debug/_deps/tinyobjloader-src/CMakeList
 -- Could NOT find Doxygen (missing: DOXYGEN_EXECUTABLE) 
 -- Using Win32 for window creation
 -- Found Vulkan: C:/VulkanSDK/1.3.275.0/Lib/vulkan-1.lib (found version "1.3.275") found components: glslc glslangValidator 
--- Configuring done (24.6s)
+-- Configuring done (21.6s)
 -- Generating done (0.1s)
 -- Build files have been written to: C:/Git/GraphicsProgRestored/cmake-build-debug

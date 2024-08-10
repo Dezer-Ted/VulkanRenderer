@@ -1,6 +1,5 @@
 #pragma once
 #include <memory>
-#include "../../Minigin/Minigin/Engine/Minigin.h"
 
 class DeltaTime {
 public:
@@ -14,6 +13,4 @@ public:
     void SetDeltaTime(float deltaT);
 private:
 	float m_DeltaTime {};
-	friend class dae::Minigin;
-	
 };

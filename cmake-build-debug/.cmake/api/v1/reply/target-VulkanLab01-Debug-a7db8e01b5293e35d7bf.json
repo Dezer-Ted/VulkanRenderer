@@ -50,13 +50,13 @@
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 76,
+				"line" : 77,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 77,
+				"line" : 76,
 				"parent" : 0
 			},
 			{
@@ -158,20 +158,20 @@
 	"dependencies" : 
 	[
 		{
-			"backtrace" : 2,
-			"id" : "glfw::@fa9f4482d3a2b070f206"
-		},
-		{
 			"backtrace" : 3,
 			"id" : "tinyobjloader::@504dab42fa214d3d2823"
 		},
 		{
+			"backtrace" : 2,
+			"id" : "glfw::@fa9f4482d3a2b070f206"
+		},
+		{
 			"backtrace" : 4,
-			"id" : "Shaders::@f0d2a6f44114b7dd8962"
+			"id" : "copy_resources::@f0d2a6f44114b7dd8962"
 		},
 		{
 			"backtrace" : 5,
-			"id" : "copy_resources::@f0d2a6f44114b7dd8962"
+			"id" : "Shaders::@f0d2a6f44114b7dd8962"
 		}
 	],
 	"id" : "VulkanLab01::@f0d2a6f44114b7dd8962",
